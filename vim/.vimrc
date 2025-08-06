@@ -4,7 +4,14 @@ syntax on
 colorscheme slate
 hi Normal guibg=NONE ctermbg=NONE
 
-" cursor change
+" cursor change - not working solid (only blinking)
+" 0 = Blinking Block
+" 1/2 = Blinking/Solid Block
+" 3/4 = Blinking/Solid underline
+" 5/6 = Blinking/Solid Bar
+let &t_SI = "\x1b[6 q"
+let &t_SR = "\x1b[4 q"
+let &t_EI = "\x1b[2 q"
 
 " line number
 set number
@@ -19,8 +26,10 @@ set expandtab
 set laststatus=2  " always show
 set t_Co=256      " 256 colors
 
-hi StatusLine guibg=#005f5f guifg=#ffffff gui=bold
-hi StatusLineNC guibg=#303030 guifg=#888888
+"hi StatusLine guibg=#005f5f guifg=#ffffff gui=bold
+highlight StatusLine guibg=#005f87 guifg=#ffffff
+"hi StatusLineNC guibg=#303030 guifg=#888888
+highlight StatusLineNC guibg=#2e2e2e guifg=#888888 " not working
 
 set statusline=
 set statusline+=%#StatusLine#
